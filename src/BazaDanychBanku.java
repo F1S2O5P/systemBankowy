@@ -3,6 +3,14 @@ public class BazaDanychBanku {
 		wczytaj();
 	}
 	
+	private String escape(String s) {
+		return s.replace(",", "\\,");
+	}
+	
+	private String unescape(String s) {
+		return s.replace("\\,", ",");
+	}
+	
 	public List<Klient> wczytaj() {
 		try {
 			ArrayList<Klient> lista = new ArrayList<Klient>();
