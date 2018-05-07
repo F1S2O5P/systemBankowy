@@ -2,12 +2,14 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Bank {
-    private static List<Klient> = new ArrayList<Klient>();
+   // private static List<Klient> = new ArrayList<Klient>();
 
     public static void main(String[] args) {
-        if(args!=1){
-            System.exit(1);
-        }
+       // if(args!=1){
+         //   System.exit(1);
+        //}
+        Operacje.menu();
+
     }
 
     //Założenie konta użytkownika (system przechowuje następujące dane: numer klienta w systemie, imię, nazwisko, pesel, adres, zgromadzone środki)
