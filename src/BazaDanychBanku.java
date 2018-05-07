@@ -3,12 +3,14 @@ public class BazaDanychBanku {
 		wczytaj();
 	}
 	
-	public boolean wczytaj() {
+	public List<Klient> wczytaj() {
 		try {
+			ArrayList<Klient> lista = new ArrayList<Klient>();
 			FileReader fr = new FileReader(path);
 			BufferedReader br = new BufferedReader(fr);
 			String linia;
 			Klient klient;
+			private final String SEPARATOR = ",";
 			while((linia = br.readLine()) != null) {
 				String obecnaKolumna;
 				
@@ -42,16 +44,33 @@ public class BazaDanychBanku {
 				pesel = column[3];
 				adres = unescape(column[4]);
 				kwota = Double.parseDouble(column[5]);
-				c = new Client(id,imie,nazwisko,pesel,adres,kwota);
-				addClient(c);
+				klient = new Klient(id,imie,nazwisko,pesel,adres,kwota);
+				lista.add(klient);
 			}
 			br.close();
-			return true;
+			return lista;
 		} catch(FileNotFoundException fnf) {
 			System.out.println("Nie znaleziono pliku \""+path+"\", zostanie on utworzony");
-			return false;			
+			return null;			
 		} catch(Exception e) {
-			System.out.println("Wyjatek " + e.getClass().getimie() + ": " + e.getLocalizedMessage());
+			System.out.println("Wyjatek " + e.getClass().getName() + ": " + e.getLocalizedMessage());
+			return null;
+		}
+		
+	}
+	
+	public boolean zapisz(List<Klient> klienci) {
+		try {
+			FileOutputStream fos = new FileOutputStream(path);
+			PrintStream out = new PrintStream(fos);
+			for(int i=0;i<klienci.size();i++) {
+				Klient klient = klienci.get(i);
+				out.println(c.getId()+SEPARATOR+escape(klient.getImie())+SEPARATOR+escape(klient.getNazwisko())+SEPARATOR+klient.getPesel()+SEPARATOR+escape(klient.getAdres())+SEPARATOR+klient.getStanKonta());
+			}
+			out.close();
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 		
