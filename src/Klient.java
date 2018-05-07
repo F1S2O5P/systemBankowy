@@ -1,7 +1,7 @@
 public class Klient {
     private String imie;
     private String nazwisko;
-    private int pesel;
+    private String pesel;
     private String adres;
     private int id;
     private double stanKonta;
@@ -33,7 +33,7 @@ public class Klient {
 
     public String getAdres(){ return adres;    }
 
-    public int getPesel(){
+    public String getPesel(){
         return pesel;
     }
 

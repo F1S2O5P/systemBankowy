@@ -26,8 +26,40 @@ public class Operacje {
         return pobraneImie;
     }
 
-    private int wpiszPesel(){
+    private String wpiszNazwisko(){
+        Scanner in = new Scanner(System.in);
+        String pobraneNazwisko;
+        do{
+            System.out.print("Podaj nazwisko uzytkownika");
+            pobraneNazwisko=in.nextLine();
+        }
+        while(Pattern.matches("^[A-Z][a-z]+-?([A-Z][a-z]+)?$", pobraneNazwisko);
+        return pobraneNazwisko;
+    }
 
+    private int wpiszPesel(){
+        Scanner in = new Scanner(System.in);
+        String pobranyPesel;
+        do{
+            System.out.print("Podaj PESEL uzytkownika");
+            pobranyPesel=in.nextLine();
+        }
+        while(Pattern.matches("\\d{11}", pobranyPesel);
+        return pobranyPesel;
+    }
+
+    private double wpiszStanKonta(){
+        Scanner in = new Scanner(System.in);
+        double pobranyStanKonta;
+        while(true) {
+            String tmp = in.nextLine();
+            try {
+                pobranyStanKonta = Double.parseDouble(tmp);
+                return pobranyStanKonta;
+            } catch(NumberFormatException nfe) {
+                System.out.println("Podana wartość nie jest liczbą!");
+            }
+        }
     }
 
     public void dodajUzytkownika(){
