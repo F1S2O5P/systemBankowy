@@ -14,13 +14,13 @@ public class Klient {
         stanKonta = 0.0;
     }
 
-    Klient(String imieKlienta, String nazwiskoKlienta,int peselKlienta, String adresKlienta, int idKlienta, int stanKontaklienta){
+    Klient(String imieKlienta, String nazwiskoKlienta,int peselKlienta, String adresKlienta, int idKlienta, int stanKontaKlienta){
         imie = imieKlienta;
         nazwisko = nazwiskoKlienta;
         pesel = peselKlienta;
         adres = adresKlienta;
-        id = idKlienta
-        stanKonta = stanKontaklienta;
+        id = idKlienta;
+        stanKonta = stanKontaKlienta;
     }
 
     public String getImie(){
